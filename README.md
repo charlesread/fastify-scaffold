@@ -38,7 +38,7 @@ The entire `/public` folder is served at, you guessed it, `/public`.  `/public/a
 First, you'll need to install the CLI.
 
 ```bash
-git clone <repo>
+git clone git@github.com:charlesread/fastify-scaffold.git
 cd fastify-scaffold
 npm i
 npm link  # you may need to `sudo npm link` depending on how you've installed node
