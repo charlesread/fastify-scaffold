@@ -13,11 +13,9 @@ module.exports = function (opts) {
     return logger
   }
   const options = opts || config.logger || {pretty: true}
-  let pretty
   if (options.pretty) {
-    pretty = pino.pretty()
-    pretty.pipe(process.stdout)
+    options.prettyPrint = true
   }
-  logger = pino(options, pretty)
+  logger = pino(options)
   return logger
 }

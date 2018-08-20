@@ -12,7 +12,8 @@ dependencies.default = [
   'marko',
   'node-dir',
   'point-of-view',
-  'pino'
+  'pino',
+  'pino-pretty'
 ]
 
 dependencies.webapp = {

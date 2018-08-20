@@ -6,8 +6,8 @@ const spawn = require('child_process').spawnSync
 
 const _ = require('lodash')
 const program = require('commander')
+require('colors')
 const copydir = require('copy-dir')
-const colors = require('colors')
 
 const scaffoldDependencies = require(path.join(__dirname, '..', 'scaffoldDependencies.js'))
 
