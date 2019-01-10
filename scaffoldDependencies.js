@@ -13,7 +13,8 @@ dependencies.default = [
   'node-dir',
   'point-of-view',
   'pino',
-  'pino-pretty'
+  'pino-pretty',
+  'require-self-ref'
 ]
 
 dependencies.webapp = {

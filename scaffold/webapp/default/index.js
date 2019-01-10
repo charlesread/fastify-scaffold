@@ -1,9 +1,9 @@
 'use strict'
 
-const path = require('path')
+require('require-self-ref')
 
-const app = require(path.join(__dirname, 'lib', 'app.js'))
-const log = require(path.join(__dirname, 'lib', 'logger.js'))()
+const app = require('~/lib/app.js')
+const log = require('~/lib/logger.js')()
 
 app.start()
   .then(function (fastify) {

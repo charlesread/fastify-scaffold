@@ -4,6 +4,8 @@ const path = require('path')
 
 const log = require(path.join(__dirname, 'logger.js'))()
 
+// hijacks require to allow it to require marko templates
+require('marko/node-require')
 // tells marko to not output .js "temp" files
 require('marko/compiler').defaultOptions.writeToDisk = false
 

@@ -1,5 +1,8 @@
+import Template from "../layout/template/index.marko";
+
 <lasso-page package-path="./browser.json"/>
-<include("../layout/template/index.marko", input)>
+
+<${Template}>
 <@main>
 <h1>
     Welcome to /!
@@ -11,4 +14,4 @@
 <example-marko-component/>
 <img src="/public/assets/power_tux.png">
 </@main>
-</include>
+</>
