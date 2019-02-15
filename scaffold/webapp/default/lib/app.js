@@ -11,11 +11,32 @@ require('marko/compiler').defaultOptions.writeToDisk = false
 
 const lasso = require('lasso')
 const dir = require('node-dir')
-const fastify = require('fastify')()
+const fastifyFactory = require('fastify')()
+
+let fastify
+
+function createCertificate() {
+  return new Promise(function (resolve, reject) {
+    pem.createCertificate({days: 1, selfSigned: true}, function(err, keys) {
+      if (err) return reject(err)
+      return resolve(keys)
+    })
+  })
+}
 
 const app = {}
 
 app.start = async function () {
+
+  const keys = await createCertificate()
+
+  fastify = fastifyFactory({
+    https: {
+      key: keys.serviceKey,
+      cert: keys.certificate
+    },
+    logger: log
+  })
 
 // bundle up all CSS, LESS, and JS assets
   lasso.configure({
@@ -49,7 +70,7 @@ app.start = async function () {
   }
   log.trace('finished registering plugins')
 
-  await fastify.listen(3000)
+  await fastify.listen(8443)
   log.trace('fastify is listening')
 
   return fastify
