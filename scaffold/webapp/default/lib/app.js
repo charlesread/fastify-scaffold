@@ -9,9 +9,10 @@ require('marko/node-require')
 // tells marko to not output .js "temp" files
 require('marko/compiler').defaultOptions.writeToDisk = false
 
+const pem = require('pem')
 const lasso = require('lasso')
 const dir = require('node-dir')
-const fastifyFactory = require('fastify')()
+const fastifyFactory = require('fastify')
 
 let fastify
 

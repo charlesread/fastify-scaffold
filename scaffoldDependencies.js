@@ -11,6 +11,7 @@ dependencies.default = [
   'lasso-marko',
   'marko',
   'node-dir',
+  'pem',
   'point-of-view',
   'pino',
   'pino-pretty',
