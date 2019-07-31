@@ -35,7 +35,7 @@ fs.readdir(configurationScaffoldPath, function (err) {
     scaffoldPath = configurationScaffoldPath
   }
   // actually copy all of the scaffold files to the current working directory
-  copydir.sync(scaffoldPath, process.cwd())
+  copydir.sync(scaffoldPath, process.cwd(), {})
   // build up the arguments for npm install <deps>
   const cmdDependencyInstallArgs = ['install', '--save']
   const dependencies = scaffoldDependencies[applicationType] && scaffoldDependencies[applicationType][configuration]
