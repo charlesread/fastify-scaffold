@@ -23,7 +23,6 @@ implementation.request = function (_options) {
       function (err, response, body) {
         if (err) {
           log.error(`Error CONNECTING to API: ${err.message}`)
-          // log.debug(err.stack)
           return reject(err)
         }
         if (body.error) {
