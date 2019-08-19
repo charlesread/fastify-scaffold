@@ -1,0 +1,17 @@
+import Template from "../layout/template/index.marko";
+
+<lasso-page package-path="./browser.json"/>
+
+<${Template}>
+<@main>
+<h1>
+    Welcome to /!
+</h1>
+<h3>
+    The current date is ${input.now}!
+</h3>
+<h4 id="handshake"></h4>
+<example-marko-component/>
+<img src="/public/assets/power_tux.png">
+</@main>
+</>

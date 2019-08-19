@@ -1,0 +1,27 @@
+import Template from "../layout/template/index.marko";
+
+<lasso-page package-path="./browser.json"/>
+
+<${Template}>
+<@main>
+<div id="_v">
+    <h1>
+        Welcome to /!
+    </h1>
+
+    <div v-cloak v-if="user">
+
+        <p>
+            You are logged-in as {{ user.username }}
+        </p>
+
+    </div>
+    <div v-else>
+
+        <a href="/login">Login</a>
+
+    </div>
+
+</div>
+</@main>
+</>

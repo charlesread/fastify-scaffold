@@ -21,6 +21,11 @@ dependencies.default = [
 dependencies.webapp = {
   cas: [
     'fastify-cas'
+  ],
+  'o365-jwt': [
+    'request',
+    'fastify-jwt-webapp',
+
   ]
 }
 

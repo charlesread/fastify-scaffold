@@ -1,0 +1,8 @@
+{
+  "dependencies": [
+    "../layout/template/browser.json",
+    "../../public/assets/js/vue.js",
+    "./lib.js",
+    "./style.css"
+  ]
+}
