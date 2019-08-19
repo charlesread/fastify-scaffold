@@ -13,15 +13,14 @@ config.fastify = {
   port: 8443
 }
 
-const tenant = undefined
-// const tenant = '56b445ce-91ad-4e6b-af20-6439b7c7da9b'
+const tenant = process.env['X_O365_TENANT']
 
 config.fjwt = {
   service: 'o365',
   urlAuthorize: `https://login.microsoftonline.com/${tenant}/oauth2/v2.0/authorize`,
   urlToken: `https://login.microsoftonline.com/${tenant}/oauth2/v2.0/token`,
   urlJWKS: `https://login.microsoftonline.com/${tenant}/discovery/v2.0/keys`,
-  client_id: '102ed68e-675a-48df-9a75-20e38ba6589a',
+  client_id: process.env['X_O365_ID'],
   client_secret: process.env['X_O365_SECRET'],
   redirect_uri: process.env['X_REDIRECT_URI'],
   pathSuccessRedirect: '/',
@@ -46,7 +45,7 @@ config.fjwt = {
   },
   nameTokenAttribute: 'id_token',
   cookie: {
-    domain: process.env['X_DOMAIN']
+    domain: process.env['X_DOMAIN'] || require('os').hostname()
   }
 }
 
