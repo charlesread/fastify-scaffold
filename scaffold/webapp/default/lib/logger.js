@@ -1,10 +1,8 @@
 'use strict'
 
-const path = require('path')
-
 const pino = require('pino')
 
-const config = require(path.join(__dirname, '..', 'config.js'))
+const config = require('~/config')
 
 let logger
 

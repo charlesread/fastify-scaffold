@@ -2,7 +2,8 @@
 
 const path = require('path')
 
-const log = require(path.join(__dirname, 'logger.js'))()
+const config = require('~/config')
+const log = require('~/lib/logger')()
 
 // hijacks require to allow it to require marko templates
 require('marko/node-require')
@@ -18,7 +19,7 @@ let fastify
 
 function createCertificate() {
   return new Promise(function (resolve, reject) {
-    pem.createCertificate({days: 1, selfSigned: true}, function(err, keys) {
+    pem.createCertificate({days: 1, selfSigned: true}, function (err, keys) {
       if (err) return reject(err)
       return resolve(keys)
     })
@@ -71,7 +72,7 @@ app.start = async function () {
   }
   log.trace('finished registering plugins')
 
-  await fastify.listen(8443)
+  await fastify.listen(config.fastify.port, config.fastify.address)
   log.trace('fastify is listening')
 
   return fastify
